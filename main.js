@@ -1,20 +1,15 @@
-const fs = require('fs');
+const fs = require("fs")
+const filePath = process.argv[2];
 
-function printFileContents(filePath) {
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if(err){
-      console.log(`Error: Unable to read file at ${filePath}. Error message: ${err.message}`);
-    }
-    else{
-      console.log(data);
-    }
-  });
+if(!filePath){
+  console.error("Usage: node print.js <file_path>");
+  process.exit(1);
 }
 
-let filePath = process.argv[2]; // Get the file path from command-line arguments
-
-if(filePath) {
-  printFileContents(filePath);
-} else {
-  console.log('Please provide a valid file path as a command-line argument.');
-}
+fs.readFile(filePath, "utf8", (err,data)=>{
+  if(err){
+    console.error(`Error: ${err.message}`);
+  }else{
+    console.log(data);
+  }
+})
