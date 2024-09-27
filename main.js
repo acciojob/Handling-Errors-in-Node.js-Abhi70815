@@ -1,12 +1,12 @@
 const fs = require('fs');
 
 function printFileContents(filePath) {
-  fs.readFile(filePath, (err, data) => {
+  fs.readFile(filePath, 'utf8', (err, data) => {
     if(err){
       console.log(`Error: ${err.message}`);
     }
     else{
-      console.log(data.toString());
+      console.log(data);
     }
   });
 }
