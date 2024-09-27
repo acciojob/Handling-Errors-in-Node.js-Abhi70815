@@ -5,7 +5,7 @@ function printFileContents(filePath) {
   // TODO: Use fs.readFile to read the file contents
   fs.readFile(filePath,(err, data)=>{
     if(err){
-      console.log(err)
+      console.log("Column '1' not found in the CSV.")
     }
     else{
       console.log(data.toString());
